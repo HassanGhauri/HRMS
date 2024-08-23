@@ -18,7 +18,7 @@ const Login = () => {
         .then(result => {
             if(result.data.loginStatus) {
                 localStorage.setItem("valid", true)
-                navigate('/dashboard')
+                window.location.replace("/dashboard");
             } else {
                 setError(result.data.Error)
             }
