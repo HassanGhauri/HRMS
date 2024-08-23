@@ -4,11 +4,12 @@ import { useNavigate } from 'react-router-dom'
 
 const AddCategory = () => {
     const [category, setCategory] = useState()
+    const [description, setDescription] = useState()
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3000/auth/add_category', {category})
+        axios.post('http://localhost:3000/auth/add_category', {category,description})
         .then(result => {
             if(result.data.Status) {
                 navigate('/dashboard/category')
@@ -27,6 +28,9 @@ const AddCategory = () => {
                     <label htmlFor="category"><strong>Category:</strong></label>
                     <input type="text" name='category' placeholder='Enter Category'
                      onChange={(e) => setCategory(e.target.value)} className='form-control rounded-0'/>
+                     <label htmlFor="description"><strong>Category-Description:</strong></label>
+                    <textarea type="text" name='description' placeholder='Enter description'
+                     onChange={(e) => setDescription(e.target.value)} className='form-control rounded-0'/>
                 </div>
                 <button className='btn btn-success w-100 rounded-0 mb-2'>Add Category</button>
             </form>
