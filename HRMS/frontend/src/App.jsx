@@ -15,7 +15,6 @@ import EmployeeLogin from './Components/EmployeeLogin'
 import EmployeeDetail from './Components/EmployeeDetail'
 import PrivateRoute from './Components/PrivateRoute'
 import CategoryDetails from './Components/CategoryDetails'
-
 function App() {
   return (
     <BrowserRouter>
@@ -38,6 +37,7 @@ function App() {
         <Route path='/dashboard/edit_employee/:id' element={<EditEmployee />}></Route>
       </Route>
     </Routes>
+
     </BrowserRouter>
   )
 }
