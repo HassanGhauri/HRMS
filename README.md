@@ -1,5 +1,4 @@
 # HRMS
-## Welcome!
 
 ## Welcome to my HR management system project called Crescent HRMS.
 
