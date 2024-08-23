@@ -50,8 +50,8 @@ const Employee = () => {
             </tr>
           </thead>
           <tbody>
-            {employee.map((e) => (
-              <tr>
+            {employee.map((e,i) => (
+              <tr key={i}>
                 <td>{e.name}</td>
                 <td>
                   <img
