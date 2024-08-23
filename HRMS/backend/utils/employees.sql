@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2024 at 03:59 PM
+-- Generation Time: Aug 23, 2024 at 05:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -63,7 +63,7 @@ INSERT INTO `category` (`id`, `name`, `description`) VALUES
 (3, 'Data Science', 'The department of Data Science in Crescent Technologies is well established with an active and agile team of creative and innovative individuals.'),
 (4, 'AI/Machine Learning', 'The department of AI/Machine Learning in Crescent Technologies is well established with an active and agile team of creative and innovative individuals.'),
 (5, 'Database Administrator', 'The DBA department in Crescent Technologies is well established and houses top database engineers from all over the country.'),
-(6, 'Graphic Designing', 'An entertaining new department in Crescent technologies.');
+(7, 'Graphic Designing', 'A UI/UX field.');
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,7 @@ INSERT INTO `employee` (`id`, `name`, `email`, `password`, `salary`, `address`, 
 (21, 'Babar', 'br@gmail.com', '$2b$10$YJ8ttZ1drTe0Selz3zGiHOSyek6ONLh9C1RQEbJE4BufTUGp2Iu8O', 50000, 'Uni road main street abc', 'image_1722431772662.jpg', 1),
 (22, 'Abbas', 'ab@gmail.com', '$2b$10$RiCaDmNiV833l3HyadWL6uuP3KVTZa8xsua3A.vUiC/qLojiAokuy', 40000, 'Kausar town road street 123', 'image_1722431859693.jpg', 2),
 (23, 'Hassan', 'hn@gmail.com', '$2b$10$7mvP116.8pVe7l3xhHP9cuJu3NXv742EPIdUKnc5D1mpz2xSsJ0z2', 60000, 'Main Uni road street 123', 'image_1722432505754.jpg', 5),
-(24, 'Ahsan', 'an@gmail.com', '$2b$10$EDTovQPufZXN9ZCHkXBaoOVlwcGPcx4JIxR9FzS87bpcPKlXID70y', 45000, 'abc st', 'image_1722432923340.jpg', 6);
+(25, 'Shahab', 'sb@gmail.com', '$2b$10$ZwcctcKDWfKIVjwgIkiBOe3QeuSLDWX3lBEmhkGOWp7eogqFbhJx2', 45000, 'Main uni road', 'image_1724423155378.jpg', 7);
 
 --
 -- Indexes for dumped tables
@@ -132,13 +132,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables
