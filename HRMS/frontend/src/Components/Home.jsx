@@ -3,11 +3,12 @@ import React, { useEffect, useState } from 'react'
 import { FaUsers } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
 import { BsCurrencyDollar } from "react-icons/bs";
-
+import { TbCategory } from "react-icons/tb";
 import { HiUsers } from "react-icons/hi";
 const Home = () => {
   const [adminTotal, setAdminTotal] = useState(0)
   const [employeeTotal, setemployeeTotal] = useState(0)
+  const [categoryTotal, setcategoryTotal] = useState(0)
   const [salaryTotal, setSalaryTotal] = useState(0)
   const [admins, setAdmins] = useState([])
 
@@ -16,6 +17,7 @@ const Home = () => {
     employeeCount();
     salaryCount();
     AdminRecords();
+    categoryCount();
   }, [])
 
   const AdminRecords = () => {
@@ -44,6 +46,14 @@ const Home = () => {
       }
     })
   }
+  const categoryCount = () => {
+    axios.get('http://localhost:3000/auth/category_count')
+    .then(result => {
+      if(result.data.Status) {
+        setcategoryTotal(result.data.Result[0].category)
+      }
+    })
+  }
   const salaryCount = () => {
     axios.get('http://localhost:3000/auth/salary_count')
     .then(result => {
@@ -57,7 +67,7 @@ const Home = () => {
   return (
     <div>
       <div className='p-3 d-flex justify-content-around mt-3'>
-        <div className='px-3 pt-2 pb-3 border shadow-sm w-25'>
+        <div className='px-3 pt-2 pb-3 border shadow-sm '>
           <div className='text-center pb-1'>
             <h4><FaUserTie/> Admin</h4>
           </div>
@@ -67,7 +77,7 @@ const Home = () => {
             <h5>{adminTotal}</h5>
           </div>
         </div>
-        <div className='px-3 pt-2 pb-3 border shadow-sm w-25'>
+        <div className='px-3 pt-2 pb-3 border shadow-sm '>
           <div className='text-center pb-1'>
             <h4><FaUsers/> Employee</h4>
           </div>
@@ -87,6 +97,16 @@ const Home = () => {
             <h5>${salaryTotal}</h5>
           </div>
         </div>
+        <div className='px-3 pt-2 pb-3 border shadow-sm '>
+          <div className='text-center pb-1'>
+            <h4><TbCategory/> Department</h4>
+          </div>
+          <hr />
+          <div className='d-flex justify-content-between'>
+            <h5>Total:</h5>
+            <h5>{categoryTotal}</h5>
+          </div>
+        </div>
       </div>
       <div className='mt-4 px-5 pt-3'>
         <h3><HiUsers/> List of Admins</h3>
@@ -99,8 +119,8 @@ const Home = () => {
           </thead>
           <tbody>
             {
-              admins.map(a => (
-                <tr>
+              admins.map((a,i) => (
+                <tr key={i}>
                   <td>{a.email}</td>
                   <td>
                   <button
