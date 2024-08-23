@@ -3,13 +3,13 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 const CategoryDetails = () => {
     const [employee, setEmployee] = useState([]);
-    const [name, setName] = useState([]);
+    const [category, setCategory] = useState([]);
     const {id} = useParams();
 
     useEffect(() => {
         axios.get('http://localhost:3000/category/name/'+id)
         .then(result => {
-            setName(result.data[0])
+            setCategory(result.data[0])
             console.log(result.data)
         })
         .catch(err => console.log(err))
@@ -24,13 +24,16 @@ const CategoryDetails = () => {
   return (
     <div>
         <div className="d-flex justify-content-center">
-            <h3>Department Name: {name.name} </h3>
+            <h3>Department Name: {category.name} </h3>
+        </div>
+        <div className="mx-3 ">
+            <span><h4>Department Description:</h4> <p>{category.description}</p></span>
         </div>
 
         <div className="d-flex justify-content mx-3">
             <h4>List of Employees in the Department:</h4>
         </div>
-        <div className="mt-3 text-dark">
+        <div className="mt-3 text-dark mx-3">
         <table className="table text-dark">
           <thead>
             <tr>
