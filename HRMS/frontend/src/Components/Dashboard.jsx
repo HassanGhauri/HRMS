@@ -8,14 +8,14 @@ import axios from "axios";
 import './style.css'
 
 const Dashboard = () => {
-  const anvigate = useNavigate()
+  const navigate = useNavigate()
   axios.defaults.withCredentials = true
   const handleLogout = () => {
     axios.get('http://localhost:3000/auth/logout')
     .then(result => {
       if(result.data.Status) { 
         localStorage.removeItem("valid")
-        anvigate('/')
+        window.location.replace("/");
       }
     })
   }
@@ -77,7 +77,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="col p-0 m-0">
-            <div className="p-0 d-flex justify-content-center shadow navbar">
+            <div className="p-0 d-flex justify-content-center shadow text-dark navbar">
                 <p>Crescent HR Management System <FaStarAndCrescent/> </p>
             </div>
             <Outlet />
