@@ -35,8 +35,12 @@ router.get('/category', (req, res) => {
 })
 
 router.post('/add_category', (req, res) => {
-    const sql = "INSERT INTO category (`name`) VALUES (?)"
-    con.query(sql, [req.body.category], (err, result) => {
+    const sql = "INSERT INTO category (name,description) VALUES (?)";
+    const values = [
+        req.body.category,
+        req.body.description
+    ]
+    con.query(sql, [values], (err, result) => {
         if(err) return res.json({Status: false, Error: "Query Error"})
         return res.json({Status: true})
     })
@@ -132,6 +136,14 @@ router.get('/admin_count', (req, res) => {
 
 router.get('/employee_count', (req, res) => {
     const sql = "select count(id) as employee from employee";
+    con.query(sql, (err, result) => {
+        if(err) return res.json({Status: false, Error: "Query Error"+err})
+        return res.json({Status: true, Result: result})
+    })
+})
+
+router.get('/category_count', (req, res) => {
+    const sql = "select count(id) as category from category";
     con.query(sql, (err, result) => {
         if(err) return res.json({Status: false, Error: "Query Error"+err})
         return res.json({Status: true, Result: result})
